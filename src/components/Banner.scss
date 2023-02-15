@@ -1,0 +1,80 @@
+.banner {
+    position: relative;
+    display: flex;
+    flex-direction: column; // on liste nos éléments en colonne
+    justify-content: space-around; // pour que nos élements soient bien répartis
+    height: 50vh; // pour que ca prenne 50% de l'écran en hauteur
+    font-size: 0.9rem;
+    padding-bottom: 3rem; // pour que l effet degradée en bas ne nous empeche pas de cliquer sur les boutons du banner
+    color: #FFF;
+    
+  
+    // pour adapter le banner aux PC
+    @media screen and(min-width:768px) {
+      font-size: 1.3rem;
+      height: 80vh;
+      padding-bottom: 7rem; // dégradé plus important 
+    }
+  
+    &__content {
+      
+      padding: 8vh 4% 0 4%;
+  
+      @media screen and(min-width:768px) {
+        width: 60vw; // pour limiter la description en largeur
+        padding-top: 40vh; // pour descendre plus bas la banner
+      }
+  
+      .banner__title {
+        font-size: 1.5rem;
+        @media screen and(min-width:768px) {
+          font-size: 2rem;
+        }
+      }
+  
+      .banner__buttons {
+        display: flex;
+  
+        .banner__button {
+          display: flex;
+          align-items: center;
+          padding: 0.4rem 1rem 0.4rem 0.5rem;
+          margin-right: 0.7rem;
+          font-weight: 600;
+          color: inherit; // herite du blanc du .banner
+          background-color: rgba(110, 110, 110, 0.7);
+          border-radius: 5px;
+          cursor: pointer;
+  
+          @media screen and(min-width:768px) {
+            font-size: 1.4rem;
+            padding: 0.8rem 1.5rem;
+          }
+  
+          &--play {
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.7);
+          }
+  
+          svg {
+            margin-right: 0.4rem; // marge entre les icones et le texte
+          }
+        }
+      }
+    }
+  
+    // ici on crée notre dégradé qui est en bas du banner
+    &::after {
+      content: ""; // content vide pour tout les éléments apres et avant
+      display: block;
+      width: 100%;
+      height: 3rem; //cf le message sur les 3rem du .banner en haut
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(31, 31, 31, 0), rgba(31, 31, 31, 0.5), #111);
+  
+      @media screen and(min-width:768px) {
+        height: 7rem; // banner plus important
+      }
+    }
+  }

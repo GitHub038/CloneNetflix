@@ -1,0 +1,47 @@
+.row {
+    padding: 1rem 4%;
+    color: #FFF;
+  
+    &__title {
+      font-size: 1.3rem;
+      padding: 0 .5rem;
+      @media screen and (min-width:768px) {
+        font-size: 1.7rem;
+      }
+    }
+  
+    &__images {
+      display: flex;
+      align-items: center;
+      overflow-x: visible; // car on veut pouvoir scroller verticalement pour parcourir les films.
+      overflow-y: hidden;
+      width: 100%;
+      padding: .5rem 0;
+  
+      .row__image {
+        width: 300px;
+        padding: 0.5rem;
+        transition: transform 0.3s ease-in; // transition pour le transform plus bas, pour pas que ca soit trop brutal
+  
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1); // effet sympa quand on passe la souris sur l'image
+        }
+      }
+    }
+  
+    // C'est pour la scrollbar qu on voit pas sous MacOS
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        background-color: #111;
+    }
+    
+    // C'est pour la scrollbar qu on voit pas sous MacOS
+    ::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+      background-color: #000000;
+      border-radius: 9px;
+      border: 3px solid transparent;
+      box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    }
+  }
